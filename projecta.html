@@ -10,25 +10,20 @@
 
 <body>
 
-<p>Choose a number between 1 and 100.</p>
-
-    <button onclick="game()">Click and play!</button> 
 
 <script>
 
 let left = 1;
 let right = 100;
-function game() {
-  while (guess = parseInt((left + right)/2)) {
-    let input = prompt("Is your number " + guess +"?" + " (yes, <, or >):");  
-    if (input == "yes") {
-    alert("I won!"); 
-    break;
-    } else if (input ==">") {
+while (guess = parseInt((left + right)/2)) {
+  let input = prompt("Is your number " + guess +"?" + " (yes, <, or >):");  
+  if (input == "yes") {
+  alert("I won!"); 
+  break;
+  } else if (input ==">") {
       left = guess;
-    } else {
+  } else {
 	right = guess;
-    }
   }
 }
 </script>
