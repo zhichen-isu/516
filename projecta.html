@@ -18,10 +18,10 @@ let right = 100;
 while (guess = parseInt((left + right)/2)) {
   let input = prompt("Is your number " + guess +"?" );  
   if (input == "yes") {
-  alert("I won!"); 
+    alert("I won!"); 
   break;
   } else if (input ==">") {
-      left = guess;
+    left = guess;
   } else {
 	right = guess;
   }
