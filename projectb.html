@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Project B</title>
+
+<body style="background-color:#FFFFDA">
+<h1>Caesar Cipher</h1>
+<p>by Zhi (Stone) Chen</p>
+
+<body>
+
+
+<script>
+"use strict";
+
+let shift = prompt("Enter Shift");
+let trueShift = shift % 26;    //trueShift is the remainder//
+let str = prompt("Enter Text"); 
+let n = str.length;
+let i = 0;
+let num = 0;
+let newNum = 0;
+let newString = "";    //final code//
+while (i < n){ 
+  num = str.charCodeAt(i)
+  if (num <= 90 && num >= 65) {
+    Upper();     
+  } else if (num >= 97 && num <= 127 ){
+    Lower();
+  } else {
+  newNum = num;
+}
+  let myString = String.fromCharCode(newNum)
+  newString = (newString + myString);
+  
+  i = i + 1;
+}
+  alert(newString);
+//  newCode = String.concat(myString); this loop is not working. //
+//  myString = String.fromCharCode(newNum)//
+ 
+ 
+
+//funtion to shift upper case letters ASCII 65-90. //
+
+function Upper(){
+  newNum = +trueShift + +num;
+  if (newNum > 90){
+  newNum = newNum - 26;
+  } else if(newNum < 65){
+  newNum = newNum + 26;
+  }
+  return newNum;
+}
+
+//funtion to shift upper case letters ASCII 97-122. //
+function Lower(){
+  newNum = +trueShift + +num;
+  if (newNum > 122){
+  newNum = newNum - 26;
+  } else if(newNum < 97){
+  newNum = newNum + 26;
+  }
+  return newNum;
+}
+
+
+
+
+
+
+
+</script> 
+
+
+</body>
+
+</html>
