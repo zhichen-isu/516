@@ -10,7 +10,6 @@
 
 <body>
 
-
 <script>
 "use strict";
 
@@ -18,10 +17,11 @@ let shift = prompt("Enter Shift");
 let trueShift = shift % 26;    //trueShift is the remainder//
 let str = prompt("Enter Text"); 
 let n = str.length;
-let i = 0;
-let num = 0;
-let newNum = 0;
-let newString = "";    //final code//
+let i = 0;             //first position//
+let num = 0;           //ascii value of original char//
+let newNum = 0;        //new value after shifting//
+let newString = "";    //final code output//
+
 while (i < n){ 
   num = str.charCodeAt(i)
   if (num <= 90 && num >= 65) {
@@ -29,46 +29,38 @@ while (i < n){
   } else if (num >= 97 && num <= 127 ){
     Lower();
   } else {
-  newNum = num;
-}
-  let myString = String.fromCharCode(newNum)
+    newNum = num;        //any char not letters//
+  }
+  let myString = String.fromCharCode(newNum);   //covert new value back to char//
   newString = (newString + myString);
-  
   i = i + 1;
 }
   alert(newString);
-//  newCode = String.concat(myString); this loop is not working. //
-//  myString = String.fromCharCode(newNum)//
- 
- 
+  
 
 //funtion to shift upper case letters ASCII 65-90. //
 
 function Upper(){
   newNum = +trueShift + +num;
   if (newNum > 90){
-  newNum = newNum - 26;
+    newNum = newNum - 26;
   } else if(newNum < 65){
-  newNum = newNum + 26;
+    newNum = newNum + 26;
   }
   return newNum;
 }
 
 //funtion to shift upper case letters ASCII 97-122. //
+
 function Lower(){
   newNum = +trueShift + +num;
   if (newNum > 122){
-  newNum = newNum - 26;
+    newNum = newNum - 26;
   } else if(newNum < 97){
-  newNum = newNum + 26;
+    newNum = newNum + 26;
   }
   return newNum;
 }
-
-
-
-
-
 
 
 </script> 
