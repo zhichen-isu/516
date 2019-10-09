@@ -20,7 +20,7 @@ let n = str.length;
 let i = 0;             //first position//
 let num = 0;           //ascii value of original char//
 let newNum = 0;        //new value after shifting//
-let myString = "";     //new chars coverted from new values//
+let newChar = "";     //new chars coverted from new values//
 let newString = "";    //final code output//
 
 while (i < n){ 
@@ -32,8 +32,8 @@ while (i < n){
   } else {
     newNum = num;        //any char not letters//
   }
-  myString = String.fromCharCode(newNum);   //covert new value back to char//
-  newString = (newString + myString);
+  newChar = String.fromCharCode(newNum);   //covert new value back to char//
+  newString = (newString + newChar);
   i = i + 1;
 }
   alert(newString);
