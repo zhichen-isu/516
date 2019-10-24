@@ -1,0 +1,72 @@
+!DOCTYPE html>
+
+<html>
+
+<title>Project C</title>
+
+<body style="background-color:#FFFFDA">
+<h1>Learner</h1>
+<p>by Zhi (Stone) Chen</p>
+
+<body>
+
+<script>
+"use strict";
+
+const itemBank = {
+  in:["He put the milk ___ the fridge.", "I have two classes ___ the morning.", "The class starts ___ ten minutes.", "The cat sleeps ___ the garage.", "She was born ___ 1968."], 
+  on:["I have no classes ___ Fridays.", "There is a clock ___ the wall.", "He found the answer ___ the internet.", "I can't find any salad ___ the menu.", "My computer professor was ___ TV yesterday."], 
+  to:["My house is close ___ my school.", "He is addicted ___ alcohol.", "The garage is attached ___ the house.", "She is alergic ___ cats.", "I need ___ tell you something."], 
+  at:["He joined the army ___ the age of 21.", "I need to pass the exam ___ all cost.", "She prefers to study ___ night.", "I studied Finance ___ university.", "He gets up ___ 6:00 in the morning." ], 
+  for:["Smoking is bad ___ your health.", "She is famous ___ her good paintings.", "It is difficult ___ me to hear you.", "He asked ___ an raise.", "The ticket is valid ___ 24 hours." ]
+};
+
+let model = {
+  "in":0, "on":0, "to":0, "at":0, "for":0
+};
+
+let prepList = Object.keys(itemBank);
+let randPn = Math.floor(Math.random() * (prepList.length));
+let prep = prepList[randPn];                               //get a random prep to begin with//
+
+while (true){
+  let itemList = itemBank[prep];                           // the array of a chosen prep in obj//
+  let randIn = Math.floor(Math.random() * (itemList.length));
+  let item = itemList[randIn];                             //get a random item of a prep//
+  let attempt = prompt(item);
+  if (attempt == prep){                    // "==" is important, otherwise returns "true" then always "correct!" //
+    alert("Correct!");
+    changeScore (1);                      
+  } else {
+    alert(item.replace("___", prep));
+    changeScore (-1);                      
+  }                       //alert(JSON.stringify(model));   if need to show the current score board//
+}
+
+function changeScore(x){
+  if (prep =="in"){
+    model.in = model.in + x;
+  } else if (prep =="on"){
+    model.on = model.on + x;
+  } else if (prep =="to"){
+    model.to = model.to + x;
+  } else if (prep =="at"){
+    model.at = model.at + x;
+  } else if (prep =="for"){
+    model.for = model.for + x;
+  }
+  for (let p in model) {
+    if (model[prep]> model[p]){
+    prep = p;
+    }
+  }
+    return prep;
+}
+
+
+</script> 
+
+
+</body>
+
+</html>
