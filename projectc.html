@@ -25,22 +25,18 @@ let model = {
   "in":0, "on":0, "to":0, "at":0, "for":0
 };
 
-let prepList = Object.keys(itemBank);
-let randPn = Math.floor(Math.random() * (prepList.length));
-let prep = prepList[randPn];                               //get a random prep to begin with//
+let prep = Object.keys(itemBank)[Math.floor(Math.random() * (Object.keys(itemBank).length))];     //get a random prep to begin with, outside loop
 
 while (true){
-  let itemList = itemBank[prep];                           // the array of a chosen prep in obj//
-  let randIn = Math.floor(Math.random() * (itemList.length));
-  let item = itemList[randIn];                             //get a random item of a prep//
+  let item = itemBank[prep][Math.floor(Math.random() * (itemBank[prep].length))];                 //get a random item from a prep array
   let attempt = prompt(item);
-  if (attempt == prep){                    // "==" is important, otherwise returns "true" then always "correct!" //
+  if (attempt == prep){                    // "==" is important, otherwise returns "true" then always "correct!" 
     alert("Correct!");
     changeScore (1);                    
   } else {
     alert(item.replace("___", prep));
     changeScore (-1);                    
-  }                         //  alert(JSON.stringify(model)); if need to show the current score board//
+  }                         //  use "alert(JSON.stringify(model));" if need to show the changing score board
 }
 
 function changeScore(x){
@@ -48,7 +44,7 @@ function changeScore(x){
   for (let p in model) {
     if (model[prep]> model[p]){
       prep = p;
-      return prep;
+      return prep;          // a 4401233012 object key pattern for all correct answers because of the loop direction; 
     } 
   }  
 };
