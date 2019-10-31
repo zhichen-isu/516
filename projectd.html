@@ -1,0 +1,40 @@
+!DOCTYPE html>
+
+<html>
+
+<title>Project D</title>
+
+<body style="background-color:#FFFFDA">
+<h1>Haigy Paigy</h1>
+<p>by Zhi (Stone) Chen</p>
+
+<body>
+
+<script>
+"use strict";
+
+let text = prompt("Input your text:");
+
+let lowText = text.replace(/^[^I\b]/, function (x){
+  return x.toLowerCase();
+});     //change begining char to lower case except for "I " (use \s or \b to exclude words like "In".)
+
+let newText = lowText.replace(/\b([\w]+?[aeiouy][\w]+)e\b/g, "$1@");  //  (at least one more vowel) replace ending "e" with placeholder "@".  
+
+let str = newText.replace(/([aeiouy]+)/g, "aig$1");    // "aig$1" to put aig before group 1.
+
+let newStr = str.replace(/@/g, "e");
+
+let result = newStr.replace(/^\w/, function (x){
+  return x.toUpperCase();       
+});    //begining char back to upper case. can also use "let result = newStr.charAt(0).toUpperCase() + newStr.slice(1);"  
+
+alert(result);
+
+
+</script> 
+
+
+</body>
+
+</html>
