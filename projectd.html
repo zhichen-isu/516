@@ -13,23 +13,27 @@
 <script>
 "use strict";
 
-let text = prompt("Input your text:");
+let newText = prompt("Input your text:");
 
-let lowText = text.replace(/^[^I\b]/, function (x){
+newText = newText.replace(/^[^I\b]/, function (x){
   return x.toLowerCase();
-});     //change begining char to lower case except for "I " (use \s or \b to exclude words like "In".)
+});     //change begining char to lower case except for "I " (use \s or \b to exclude pronoun "I".)
 
-let newText = lowText.replace(/\b([\w]*[aeiouy][\w]*)e\b/g, "$1@");  //  (at least one more vowel) replace ending "e" with placeholder "@".  
+newText = newText.replace(/\b([\w]*[aeiouyAEIOUY][\w]+)e\b/g, "$1@");  //  (when there is at least one more vowel) replace ending "e" with placeholder "@".  
+newText = newText.replace(/\bY/g, "#");
+newText = newText.replace(/\by/g, "%"); //replace word begining Y or y with placeholder
 
-let str = newText.replace(/([aeiouy]+)/g, "aig$1");    // "aig$1" to put aig before group 1.
+newText = newText.replace(/([aeiouyAEIOU]+)/g, "aig$1");    // "aig$1" to put aig before group 1.
 
-let newStr = str.replace(/@/g, "e");
+newText = newText.replace(/@/g, "e");
+newText = newText.replace(/#/g, "Y");
+newText = newText.replace(/%/g, "y");
 
-let result = newStr.replace(/^\w/, function (x){
+newText = newText.replace(/^\w/, function (x){
   return x.toUpperCase();       
 });    //begining char back to upper case. can also use "let result = newStr.charAt(0).toUpperCase() + newStr.slice(1);"  
 
-alert(result);
+alert(newText);
 
 
 </script> 
