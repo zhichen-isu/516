@@ -20,14 +20,15 @@ newText = newText.replace(/^[^I\b]/, function (x){
 });     //change begining char to lower case except for "I " (use \s or \b to exclude pronoun "I".)
 
 newText = newText.replace(/\b([\w]*[aeiouyAEIOUY][\w]+)e\b/g, "$1@");  //  (when there is at least one more vowel) replace ending "e" with placeholder "@".  
-newText = newText.replace(/\bY/g, "#");
-newText = newText.replace(/\by/g, "%"); //replace word begining Y or y with placeholder
 
-newText = newText.replace(/([aeiouyAEIOU]+)/g, "aig$1");    // "aig$1" to put aig before group 1.
+//newText = newText.replace(/Y[aeiou]/g, "#");
+//newText = newText.replace(/y/g, "%"); //replace word begining Y or y with placeholder
 
+newText = newText.replace(/([aeiouyAEIOUY]+)/g, "aig$1");    // "aig$1" to put aig before group 1.
 newText = newText.replace(/@/g, "e");
-newText = newText.replace(/#/g, "Y");
-newText = newText.replace(/%/g, "y");
+
+//newText = newText.replace(/#/g, "Y");
+//newText = newText.replace(/%/g, "y");
 
 newText = newText.replace(/^\w/, function (x){
   return x.toUpperCase();       
