@@ -1,0 +1,13 @@
+Final Project Proposal --  Stone Chen
+An interactive computer assisted spoken English learning activity for ESL learners. 
+This main ideal of the project is using JavaScript to program a task-based spoken activity for ESL learners. 
+The program will enable learners to interact with the computer through speech recognition and speech synthesis. 
+The program will first convert the voice input into a text string, subtract keywords from the string, and use the keywords to trigger appropriate language responses that are pre-stored sentences in the program’s item bank. 
+The responding item would be converted into voice through speech synthesis and played back to the users. 
+The users will then respond according to the content of the voice output and carry out the conversation with new voice commands. 
+The activity will mimic a real-life conversation scenario that helps the users focus on meaning through role play and elicit the users to generate genuine responses.  
+With a build in logic between commands and responses, the program will lead the users finish the language task by achieving a specific outcome. 
+Visual effects such as pictures and animations would also be used alongside with the speech commands and responses to facility the interaction by allowing the users to visualize the conversational results. 
+A typical example of such a task is ordering food at a restaurant. 
+The users would order different types of main entrees, side dishes and drinks by placing orders of their preferences, and the computer would respond according to users’ orders. 
+The task will end up with pictures of food items users ordered flying to an empty tray with a bill of the correct total among. 
