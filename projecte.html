@@ -20,8 +20,8 @@ function process() {
 
   for (let i = 0; i < wordArr.length; i++) {
     let word = wordArr[i];
-	if (!dictionary[word]) dictionary[word]=1;
-    else dictionary[word]++;
+	//if (!dictionary[word]) dictionary[word]=1;
+    //else dictionary[word]++;
     let count = 0;                     // not from 1, because every item counts itself once. 
     for (let j = 0; j < wordArr.length; j++) {
       if (wordArr[i] == wordArr[j]) {
