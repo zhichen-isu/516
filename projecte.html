@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+"use strict";
+function process() {
+  let text = document.getElementById("input").value;
+  
+  text = text.toUpperCase();
+  text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"]/g,"").replace(/\s+/g," ");
+  let wordArr = text.split(" ");       //split string into array where there is a "space"
+  let dictionary = { };
+
+  for (let i = 0; i < wordArr.length; i++) {
+    let word = wordArr[i];
+	if (!dictionary[word]) dictionary[word]=1;
+    else dictionary[word]++;
+    let count = 0;                     // not from 1, because every item counts itself once. 
+    for (let j = 0; j < wordArr.length; j++) {
+      if (wordArr[i] == wordArr[j]) {
+      count++;
+      dictionary[wordArr[i]]= count;   //key is a variable, must use [] not dot. must be x[y[i]], not x[y][i]. 
+      }                               // avoiding double-counting in loop automatically skips the identical keys? :)
+    }
+  }
+
+  let newList = Object.entries(dictionary);          //returns [key,value] pairs of an object in an array of arrays.
+  newList.sort(function(a, b){return b[1] - a[1]});  //[1] is the index for "value" in a pair
+                                                     // cannot display object. "[object Object]". 
+  let word = "";
+  for (let x of newList){
+    word = word + x + "\n";
+  }  
+  let result = "Number of Tokens = " + wordArr.length + "\n" 
+    + "Number of Types = " + newList.length + "\n"
+    + "Type/Token Ratio = " + newList.length / wordArr.length + "\n"
+    + "Frequency Dictionary:" + "\n"
+    + word; 
+  document.getElementById("output").value = result;
+}
+
+</script> 
+
+</body>
+
+</html>
