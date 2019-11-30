@@ -64,7 +64,7 @@
 
 <script>
 
-var message = document.querySelector('#message');
+var message = document.querySelector('#message');  // speech recognition from: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/SpeechRecognition
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var grammar = '#JSGF V1.0;'
@@ -178,7 +178,7 @@ function myMove(a,b) {
       position++; 
       elem.style.top = position + "px"; 
       elem.style.left = 53 + position * b / 2 + "px";
-    }
+    }							 // animation method from: https://www.w3schools.com/js/js_htmldom_animate.asp
   }
   let reply = replyBank[newId][Math.floor(Math.random() * replyBank[newId].length)];
   answer.textContent = "Reply: " + reply;
