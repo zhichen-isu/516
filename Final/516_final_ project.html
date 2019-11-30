@@ -64,7 +64,7 @@
 
 <script>
 
-var message = document.querySelector('#message');  // speech recognition from: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/SpeechRecognition
+var message = document.querySelector('#message');  // speech recognition model from: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/SpeechRecognition
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var grammar = '#JSGF V1.0;'
@@ -87,11 +87,11 @@ recognition.onresult = function(event) {
   if(command.match(/salad|coffee|hamburger|burger|fries|juice|pizza|thanks?/) == null) {
     let reply = replyBank.others[Math.floor(Math.random() * replyBank.others.length)];
     speechSynthesis.speak(new SpeechSynthesisUtterance(reply));
-    answer.textContent = "Reply: " + reply;                                  // no match before match, otherwise cannot find keyword property[0]
+    answer.textContent = "Reply: " + reply;                                  // no match before match, otherwise "cannot find keyword property[0]" error.
   }
 	
   else {
-    let keyword = command.match(/salad|coffee|hamburger|burger|fries|juice|pizza|thanks?/); //returns matched results in an array, first match at position 0
+    let keyword = command.match(/salad|coffee|hamburger|burger|fries|juice|pizza|thanks?/); //returns matched results in an array, first match is at position 0
     console.log(keyword); 
     if(keyword[0] === "salad"){
       myMove(0,0);
