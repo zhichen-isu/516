@@ -1,0 +1,18 @@
+User Manual
+
+System requirement: 
+PC or Mac with web browsers;
+A microphone;
+
+User Instruction:
+1, Turn on your microphone, start the program and click the "Place your order" button to give speech commamnds.
+2, Users should order a meal on the menu that includes a main dish, a side dish, and a drink, in any sequence. 
+3, Order one item at a time. Users are free speak any way they want, as long as their command contains the name of the food item. 
+4, The program will give a reply and trigger animations according to the user's command.
+5, The program will say the total amount when user finish ordering the meal. 
+
+Limitations:
+1, Users can only order food on the menu. If users order any food outside the menu, the program would tell the user to stick to the memu.
+2, Other than ordering food items and say thank you, the program would not understand the users' command.
+3, Users have to say the speech command coherently. If there is a long pause, the speech recognition will stop and the user has to restart the sentence. 
+4, Users have to click the "place your order" button for every single speech command. The program has no mechanism for conversation "turn taking" control.
