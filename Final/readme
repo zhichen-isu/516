@@ -8,7 +8,7 @@ Instruction:
 1, Enable the microphone, double click the html file, and click the "Place your order" button to give speech commamnds.
 2, Users should order a meal on the menu which includes a main dish, a side dish, and a drink, in any sequence. 
 3, Order one item at a time. Users are free to speak any way they want, as long as their command contains the name of the target food item. 
-   For example: "I think I am going to order a big hamburger today."
+   For example: "I feel very hungry. I think I am gonna order a big hamburger today."
 4, The program will give a speech reply according to the user's speech command.
 5, The program will trigger an animation of food item based on the user's order.
 6, The program will say the total amount when the user finishes ordering the meal. 
@@ -19,5 +19,5 @@ Limitations:
 1, Users can only order food on the menu. If the user orders any food outside the menu, the program will tell the user to stick to the memu.
 2, Users can only order one food item at a time. If say both target food names, only the first one will be reconized by the program.
 3, Other than ordering food items and saying thank you, the program would not understand the users' command.
-4, Users have to say the speech command coherently. If there is a long pause, the speech recognition will stop automatically and the user has to restart the sentence. 
-5, Users have to click the "place your order" button for every single speech command. The program has no "turn taking" mechanism for conversation.
+4, Users have to say the speech command sentence coherently. If there is a long pause, the speech recognition will stop automatically and the user has to restart the sentence. 
+5, Sometimes the speech recognition stops automatically when there is a long pause. The user has to click "place your order" button again to activate speech recognition.
