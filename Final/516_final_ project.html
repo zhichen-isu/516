@@ -95,8 +95,8 @@ recognition.onresult = function(event) {
     console.log(keyword); 
     if(keyword[0] === "salad"){
       myMove(0,0);
-	  count++;
-	  bill += 4.0;
+      count++;
+      bill += 4.0;
     }
     if(keyword[0] === "coffee"){
       myMove(1,1);
@@ -115,23 +115,23 @@ recognition.onresult = function(event) {
     }	
     if(keyword[0] === "juice"){
       myMove(4,1);
-	  count++;
-	  bill += 2.0;
+      count++;
+      bill += 2.0;
     }	
     if(keyword[0] === "pizza"){
       myMove(5,2);
-	  count++;
-	  bill += 4.5;
+      count++;
+      bill += 4.5;
     }
 	
     if(keyword[0] === "thank" | keyword[0] === "thanks"){
-	  count = 2;    //set count to 2, otherwise it will trigger the following replyTotal condition and repeat the total.
+      count = 2;    //set count to 2, otherwise it will trigger the following replyTotal condition and repeat the total.
       let reply = replyBank.thank[Math.floor(Math.random() * replyBank.thank.length)];
       answer.textContent = "Reply: " + reply;	
-	  speechSynthesis.speak(new SpeechSynthesisUtterance(reply));
+      speechSynthesis.speak(new SpeechSynthesisUtterance(reply));
     }
 	
-	if(count > 2){
+    if(count > 2){
     let replyTotal = "Your total is " + bill + " dollars";
       speechSynthesis.speak(new SpeechSynthesisUtterance(replyTotal));
       //answer.textContent = "Reply: " + replyTotal + ".";
